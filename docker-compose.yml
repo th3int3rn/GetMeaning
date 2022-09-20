@@ -1,0 +1,35 @@
+version: '3.4'
+services:
+  app1:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        WORD: flower
+    restart: 'always'
+
+  app2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        WORD: dedo
+    restart: 'always'
+
+  app3:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        WORD: flower
+    restart: 'always'
+
+#    deploy:
+#      replicas: 3
+#      placement:
+#        max_replicas_per_node: 3
+#      update_config:
+#        parallelism: 3
+#        delay: 10s
+#      restart_policy:
+#        condition: on-failure
